@@ -1,22 +1,11 @@
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { getAllNovels } from "@/lib/novels";
-import { useMood } from "@/lib/mood-context";
 
 export function NovelsPage() {
   const posts = getAllNovels();
-  const { mood, toggle } = useMood();
-  const switched = useRef(false);
-
-  useEffect(() => {
-    if (!switched.current && mood !== "shine") {
-      switched.current = true;
-      toggle();
-    }
-  }, [mood, toggle]);
 
   return (
     <div className="relative">

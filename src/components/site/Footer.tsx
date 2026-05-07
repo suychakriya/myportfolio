@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Mail } from "lucide-react";
+import { useMood } from "@/lib/mood-context";
 
 function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -18,6 +19,14 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export function Footer() {
+  const { mood, toggle } = useMood();
+  const navigate = useNavigate();
+
+  const goToWork = () => {
+    if (mood === "shine") toggle();
+    navigate("/work");
+  };
+
   return (
     <footer className="relative border-t border-border bg-primary text-primary-foreground overflow-hidden">
       <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-sun-radial opacity-20 blur-3xl" />
@@ -50,9 +59,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/work" className="hover:text-sun transition-colors">
+                <button onClick={goToWork} className="hover:text-sun transition-colors">
                   Experience
-                </Link>
+                </button>
               </li>
               <li>
                 <Link to="/projects" className="hover:text-sun transition-colors">
