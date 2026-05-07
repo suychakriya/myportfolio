@@ -14,7 +14,7 @@ export function MoodProvider({ children }: { children: ReactNode }) {
   const [mood, setMoodState] = useState<Mood>(() =>
     typeof window !== "undefined" && window.location.pathname.startsWith("/novels")
       ? "shine"
-      : "focus"
+      : "focus",
   );
 
   useEffect(() => {
@@ -24,11 +24,7 @@ export function MoodProvider({ children }: { children: ReactNode }) {
   const setMood = useCallback((m: Mood) => setMoodState(m), []);
   const toggle = useCallback(() => setMoodState((m) => (m === "focus" ? "shine" : "focus")), []);
 
-  return (
-    <MoodContext.Provider value={{ mood, toggle, setMood }}>
-      {children}
-    </MoodContext.Provider>
-  );
+  return <MoodContext.Provider value={{ mood, toggle, setMood }}>{children}</MoodContext.Provider>;
 }
 
 export function useMood() {
