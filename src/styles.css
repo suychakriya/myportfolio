@@ -1,0 +1,255 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/fraunces/v32/6NUh8FyLNQOQZAnv9ZwNjucMHVn85Ni7emA0Sl5Pgz0u_jSRdyDtZgPiaQ.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2") format("woff2");
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-cream: var(--cream);
+  --color-sun: var(--sun);
+  --color-sun-deep: var(--sun-deep);
+  --color-ink: var(--ink);
+  --color-mist: var(--mist);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --shadow-sun: 0 30px 80px -20px color-mix(in oklab, var(--sun) 45%, transparent);
+  --shadow-deep: 0 40px 80px -30px color-mix(in oklab, var(--navy-deep) 60%, transparent);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand */
+  --navy-deep: oklch(0.18 0.05 254);   /* #0A1628 deep midnight */
+  --navy: oklch(0.28 0.07 256);        /* mid navy */
+  --cream: oklch(0.97 0.015 85);       /* warm off-white #F8F5EE */
+  --sun: oklch(0.82 0.14 80);          /* amber gold */
+  --sun-deep: oklch(0.68 0.16 55);     /* burnt amber */
+  --ink: oklch(0.18 0.05 254);
+  --mist: oklch(0.90 0.01 250);
+
+  /* Semantic — light theme = cream */
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: var(--cream);
+  --popover-foreground: var(--ink);
+  --primary: var(--navy-deep);
+  --primary-foreground: var(--cream);
+  --secondary: oklch(0.93 0.015 80);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.93 0.015 80);
+  --muted-foreground: oklch(0.45 0.02 250);
+  --accent: var(--sun);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: var(--cream);
+  --border: oklch(0.88 0.015 80);
+  --input: oklch(0.88 0.015 80);
+  --ring: var(--navy);
+}
+
+/* FOCUS mode — navy + cream. The "sun" tokens are desaturated navy-greys. */
+:root,
+:root[data-mood="focus"] {
+  --sun: oklch(0.55 0.04 254);
+  --sun-deep: oklch(0.35 0.05 254);
+  --accent: oklch(0.55 0.04 254);
+  --background: oklch(0.99 0.004 250);
+  --card: oklch(1 0 0);
+}
+
+/* SHINE mode — warm cream + espresso + amber gold. Cozy, literary, personal. */
+:root[data-mood="shine"] {
+  --background: oklch(0.965 0.028 78);
+  --foreground: oklch(0.22 0.05 52);
+  --card: oklch(0.99 0.012 82);
+  --card-foreground: oklch(0.22 0.05 52);
+  --primary: oklch(0.38 0.09 50);
+  --primary-foreground: oklch(0.97 0.02 80);
+  --secondary: oklch(0.92 0.022 80);
+  --secondary-foreground: oklch(0.22 0.05 52);
+  --muted: oklch(0.93 0.020 78);
+  --muted-foreground: oklch(0.50 0.045 57);
+  --accent: oklch(0.71 0.14 66);
+  --accent-foreground: oklch(0.18 0.05 52);
+  --border: oklch(0.87 0.028 76);
+  --input: oklch(0.87 0.028 76);
+  --ring: oklch(0.58 0.14 56);
+  --sun: oklch(0.71 0.14 66);
+  --sun-deep: oklch(0.54 0.15 50);
+  --navy-deep: oklch(0.22 0.05 52);
+  --ink: oklch(0.22 0.05 52);
+  --cream: oklch(0.97 0.02 80);
+}
+
+.dark {
+  --background: var(--navy-deep);
+  --foreground: var(--cream);
+  --card: oklch(0.22 0.05 254);
+  --card-foreground: var(--cream);
+  --popover: var(--navy-deep);
+  --popover-foreground: var(--cream);
+  --primary: var(--cream);
+  --primary-foreground: var(--navy-deep);
+  --secondary: oklch(0.25 0.05 254);
+  --secondary-foreground: var(--cream);
+  --muted: oklch(0.25 0.05 254);
+  --muted-foreground: oklch(0.70 0.02 250);
+  --accent: var(--sun);
+  --accent-foreground: var(--navy-deep);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: var(--sun);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-feature-settings: "ss01", "ss02";
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background-color: var(--sun);
+    color: var(--navy-deep);
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .bg-grain {
+    background-image:
+      radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--ink) 8%, transparent) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  .bg-sun-radial {
+    background: radial-gradient(circle at 50% 50%,
+      color-mix(in oklab, var(--sun) 90%, transparent) 0%,
+      color-mix(in oklab, var(--sun-deep) 60%, transparent) 40%,
+      transparent 70%);
+  }
+
+  .text-gradient-sun {
+    background: linear-gradient(135deg, var(--sun) 0%, var(--sun-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-focus {
+    background: linear-gradient(135deg, oklch(0.72 0.18 285) 0%, oklch(0.52 0.22 265) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .ring-sun {
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--sun) 40%, transparent),
+                0 20px 60px -20px color-mix(in oklab, var(--sun) 35%, transparent);
+  }
+
+  .marquee {
+    animation: marquee 40s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -30px) scale(1.05); }
+  }
+  .animate-float-slow { animation: float-slow 12s ease-in-out infinite; }
+
+  @keyframes pulse-sun {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
+  }
+  .animate-pulse-sun { animation: pulse-sun 6s ease-in-out infinite; }
+
+  /* Editorial prose styles for novel posts */
+  .prose-novel > p:first-of-type::first-letter {
+    font-family: var(--font-display);
+    font-size: 4.5em;
+    line-height: 0.85;
+    float: left;
+    padding: 0.1em 0.12em 0 0;
+    color: var(--sun-deep);
+    font-style: italic;
+  }
+  .prose-novel h1, .prose-novel h2, .prose-novel h3 {
+    font-feature-settings: "ss01", "ss02";
+    letter-spacing: -0.02em;
+  }
+  .prose-novel code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+    background: color-mix(in oklab, var(--sun) 15%, transparent);
+    padding: 0.1em 0.4em;
+    border-radius: 0.25em;
+  }
+}
