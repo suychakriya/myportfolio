@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { SectionHeading } from "@/components/site/SectionHeading";
 
 const channels = [
@@ -9,7 +9,6 @@ const channels = [
     value: "suy.chakryya@gmail.com",
     href: "mailto:suy.chakryya@gmail.com",
   },
-  { icon: Phone, label: "Phone", value: "+81 070 9195 4356", href: "tel:+817091954356" },
   { icon: MapPin, label: "Location", value: "Tokyo, Japan", href: "#" },
 ];
 
