@@ -138,7 +138,7 @@ export function FocusHome({ hero }: Props) {
               {[
                 { k: "4+", v: "Years shipping" },
                 { k: "10+", v: "Production projects" },
-                { k: "210+", v: "npm downloads" },
+                { k: "210+", v: "Published npm downloads" },
               ].map((s) => (
                 <div key={s.v}>
                   <div className="font-display text-3xl">{s.k}</div>

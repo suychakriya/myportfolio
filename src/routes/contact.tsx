@@ -29,7 +29,7 @@ export function ContactPage() {
                 .
               </>
             }
-            description="I'm based in Tokyo and open to frontend roles, freelance projects, or just a coffee-shaped Slack thread. I usually reply within a day."
+            description="I'm based in Tokyo and open to frontend roles, freelance projects, or just a coffee-shaped Slack thread."
           />
 
           <motion.a
@@ -81,7 +81,7 @@ export function ContactPage() {
               </div>
               <p className="mt-2 leading-relaxed">
                 Software Engineer at <strong>Equmenopolis</strong> in Tokyo. Open to conversations
-                about new roles, contracts, and collaborations.
+                about new roles, and collaborations.
               </p>
             </div>
           </motion.div>
