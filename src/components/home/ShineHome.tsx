@@ -334,7 +334,7 @@ export function ShineHome({ hero }: Props) {
             {(
               [
                 ["Games", favorites.games, Gamepad2],
-                ["Authors", favorites.novels, BookOpen],
+                ["Novels", favorites.novels, BookOpen],
                 ["Films", favorites.films, PenLine],
               ] as const
             ).map(([label, items, Icon]) => (
