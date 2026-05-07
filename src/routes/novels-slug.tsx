@@ -1,11 +1,22 @@
+import { useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { getNovelBySlug, renderMarkdown } from "@/lib/novels";
+import { useMood } from "@/lib/mood-context";
 
 export function NovelSlugPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getNovelBySlug(slug) : null;
+  const { mood, toggle } = useMood();
+  const switched = useRef(false);
+
+  useEffect(() => {
+    if (!switched.current && mood !== "shine") {
+      switched.current = true;
+      toggle();
+    }
+  }, [mood, toggle]);
 
   if (!post) {
     return (
