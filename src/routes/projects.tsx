@@ -31,7 +31,16 @@ const projects = [
       "Modular command architecture (story → translate → images → audio → render → upload → post) with Supabase tracking per-step status and Google Drive bridging local render to cloud. Partial reruns and reliable failure recovery built in.",
       "GitHub Actions cron (9am UTC / 4pm Cambodia) downloads videos from Drive, posts to Facebook (English + Khmer captions) and YouTube with auto-generated titles, descriptions, and tags across 4 active themes: Horror & Thriller, Real Unexplained Events, Ghost Stories, Dark Fantasy.",
     ],
-    stack: ["TypeScript", "Claude API", "FLUX", "F5-TTS", "Remotion", "Supabase", "Google Drive", "GitHub Actions"],
+    stack: [
+      "TypeScript",
+      "Claude API",
+      "FLUX",
+      "F5-TTS",
+      "Remotion",
+      "Supabase",
+      "Google Drive",
+      "GitHub Actions",
+    ],
     links: [
       { label: "GitHub", href: "https://github.com/suychakriya" },
       { label: "YouTube", href: "https://www.youtube.com/@untoldlores000" },

@@ -128,7 +128,7 @@ export function WorkPage() {
                 transition={{ duration: 0.6, delay: i * 0.04 }}
                 className="relative pl-12 md:pl-20"
               >
-                <span className="absolute left-0 md:left-[10px] top-2 h-6 w-6 rounded-full bg-background border-2 border-sun grid place-items-center">
+                <span className="absolute left-0 md:left-2.5 top-2 h-6 w-6 rounded-full bg-background border-2 border-sun grid place-items-center">
                   <span className="h-2 w-2 rounded-full bg-sun" />
                 </span>
 

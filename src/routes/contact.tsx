@@ -17,7 +17,7 @@ export function ContactPage() {
   return (
     <section className="relative px-6 lg:px-10 py-24 min-h-[calc(100vh-4rem)] flex items-center">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-sun-radial opacity-20 blur-3xl animate-pulse-sun" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 h-125 w-125 rounded-full bg-sun-radial opacity-20 blur-3xl animate-pulse-sun" />
       </div>
 
       <div className="relative mx-auto max-w-6xl w-full grid lg:grid-cols-12 gap-12 items-center">
