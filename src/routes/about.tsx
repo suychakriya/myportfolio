@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/site/SectionHeading";
+import { useMood } from "@/lib/mood-context";
 
 const skills = {
   Frontend: [
@@ -44,6 +45,14 @@ const principles = [
 ];
 
 export function AboutPage() {
+  const { mood, toggle } = useMood();
+  const navigate = useNavigate();
+
+  const goToWork = () => {
+    if (mood === "shine") toggle();
+    navigate("/work");
+  };
+
   return (
     <>
       <section className="relative px-6 lg:px-10 pt-24 pb-20">
@@ -260,12 +269,12 @@ export function AboutPage() {
               </p>
             </div>
             <div className="flex gap-3">
-              <Link
-                to="/work"
+              <button
+                onClick={goToWork}
                 className="rounded-full bg-sun text-navy-deep px-6 py-3 text-sm font-semibold hover:opacity-90 transition-opacity inline-flex items-center gap-2"
               >
                 Experience <ArrowUpRight size={16} />
-              </Link>
+              </button>
               <Link
                 to="/contact"
                 className="rounded-full border border-primary-foreground/30 px-6 py-3 text-sm font-medium hover:border-sun hover:text-sun transition-colors"
