@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { useMood } from "@/lib/mood-context";
 
 const roles = [
   {
@@ -97,12 +95,6 @@ const roles = [
 ];
 
 export function WorkPage() {
-  const { mood, toggle } = useMood();
-
-  useEffect(() => {
-    if (mood === "shine") toggle();
-  }, []);
-
   return (
     <>
       <section className="px-6 lg:px-10 pt-24 pb-16 relative">
