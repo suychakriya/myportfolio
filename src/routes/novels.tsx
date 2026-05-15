@@ -10,7 +10,7 @@ export function NovelsPage() {
   return (
     <div className="relative">
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-sun-radial opacity-30 blur-3xl" />
+        <div className="absolute -top-40 -right-40 h-125 w-125 rounded-full bg-sun-radial opacity-30 blur-3xl" />
         <div className="absolute top-1/2 -left-40 h-96 w-96 rounded-full bg-sun-radial opacity-20 blur-3xl" />
       </div>
 
@@ -25,15 +25,15 @@ export function NovelsPage() {
             <BookOpen size={12} />
             <span>The notebook</span>
           </motion.div>
-          <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-7xl leading-[1.0] tracking-tight text-balance">
+          <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-7xl leading-none tracking-tight text-balance">
             Novels & notes,
             <br />
             <span className="italic font-light">slowly written.</span>
           </h1>
           <p className="mt-8 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            Short stories, half-finished chapters, and essays I wrote on trains.
-            Posted when they stop embarrassing me — sometimes years after the
-            first draft. Print is best. Read with tea.
+            Short stories, half-finished chapters, and essays I wrote on trains. Posted when they
+            stop embarrassing me — sometimes years after the first draft. Print is best. Read with
+            tea.
           </p>
         </div>
       </section>
@@ -43,7 +43,11 @@ export function NovelsPage() {
         <div className="mx-auto max-w-5xl">
           <SectionHeading
             eyebrow={`${posts.length} ${posts.length === 1 ? "piece" : "pieces"}`}
-            title={<>The library, <em className="font-light italic">so far</em>.</>}
+            title={
+              <>
+                The library, <em className="font-light italic">so far</em>.
+              </>
+            }
           />
 
           <div className="mt-16 divide-y divide-border border-y border-border">

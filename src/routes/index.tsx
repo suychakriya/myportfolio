@@ -22,13 +22,12 @@ function FocusHero() {
 }
 
 function ShineHero() {
-  const { mood } = useMood();
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, delay: 0.2 }}
-      className="lg:col-span-5"
+      className="hidden lg:block lg:col-span-5"
     >
       <DualitySun />
       <div className="mt-2 text-center">

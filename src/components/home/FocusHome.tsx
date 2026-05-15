@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 const featured = [
   {
     name: "device-share",
-    tag: "npm · 210+ weekly downloads",
+    tag: "npm · Open source · Team Adopted",
     blurb: "A CLI that exposes localhost via QR code — kills the PR-preview-deploy-test loop.",
     href: "https://www.npmjs.com/package/device-share",
   },
@@ -138,7 +138,6 @@ export function FocusHome({ hero }: Props) {
               {[
                 { k: "4+", v: "Years shipping" },
                 { k: "10+", v: "Production projects" },
-                { k: "210+", v: "Published npm downloads" },
               ].map((s) => (
                 <div key={s.v}>
                   <div className="font-display text-3xl">{s.k}</div>

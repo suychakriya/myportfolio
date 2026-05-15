@@ -12,7 +12,7 @@ const projects = [
     bullets: [
       "Built and published an open-source CLI (`npx device-share`) that exposes localhost via QR code instantly — no PR preview deploys for mobile testing.",
       "Supports local network and Cloudflare tunnel modes with built-in password protection, rate limiting, and auto-expiry.",
-      "210+ weekly npm downloads. Adopted organically beyond the team. Eliminated PR-preview-deploys for mobile entirely.",
+      "Built for a real problem, adopted by the team. Eliminated PR-preview-deploy cycles for mobile testing entirely.",
     ],
     stack: ["TypeScript", "Node.js CLI", "Cloudflare Tunnel"],
     links: [

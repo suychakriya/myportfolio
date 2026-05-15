@@ -96,7 +96,8 @@ export function AboutPage() {
                 rel="noreferrer"
                 className="underline decoration-sun decoration-2 underline-offset-4 text-foreground hover:text-sun-deep"
               >
-                npm package with 210+ weekly downloads
+                an npm package adopted by my team that eliminated PR-preview deploys for mobile
+                testing
               </a>
               , an end-to-end AI video pipeline, an anonymous confession platform that
               auto-publishes, and an automated Facebook content system. I like solving the same

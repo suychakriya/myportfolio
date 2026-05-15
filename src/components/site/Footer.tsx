@@ -38,8 +38,7 @@ export function Footer() {
               <span className="font-display text-xl">Chakriya Suy</span>
             </div>
             <p className="text-sm text-primary-foreground/70 max-w-xs leading-relaxed">
-              Software Engineer building fast, accessible, and quietly delightful interfaces from
-              Tokyo.
+              Software Engineer building reliable, production-ready systems from Tokyo.
             </p>
           </div>
 
