@@ -101,10 +101,10 @@ export function renderMarkdown(md: string, opts?: { preserveLineBreaks?: boolean
       );
     } else {
       const inlined = inline(trimmed);
-      const body = opts?.preserveLineBreaks ? inlined.replace(/\n/g, "<br />") : inlined.replace(/\n/g, " ");
-      html.push(
-        `<p class="my-5 leading-[1.85] text-lg text-foreground/90">${body}</p>`,
-      );
+      const body = opts?.preserveLineBreaks
+        ? inlined.replace(/\n/g, "<br />")
+        : inlined.replace(/\n/g, " ");
+      html.push(`<p class="my-5 leading-[1.85] text-lg text-foreground/90">${body}</p>`);
     }
   }
   return html.join("\n");

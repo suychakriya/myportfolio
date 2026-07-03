@@ -70,9 +70,7 @@ export function NovelSlugPage() {
         />
 
         <div className="mt-20 pt-10 border-t border-border text-center">
-          <p className="text-sm text-muted-foreground italic font-display">
-            Thanks for reading.
-          </p>
+          <p className="text-sm text-muted-foreground italic font-display">Thanks for reading.</p>
           <Link
             to="/novels"
             className="mt-6 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium hover:border-sun/60 transition-colors"
