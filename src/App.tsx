@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { Layout } from "@/components/site/Layout";
 import { HomePage } from "@/routes/index";
 import { AboutPage } from "@/routes/about";
@@ -33,17 +34,20 @@ function NotFoundPage() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="about" element={<AboutPage />} />
-        <Route path="contact" element={<ContactPage />} />
-        <Route path="projects" element={<ProjectsPage />} />
-        <Route path="work" element={<WorkPage />} />
-        <Route path="novels" element={<NovelsPage />} />
-        <Route path="novels/:slug" element={<NovelSlugPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="projects" element={<ProjectsPage />} />
+          <Route path="work" element={<WorkPage />} />
+          <Route path="novels" element={<NovelsPage />} />
+          <Route path="novels/:slug" element={<NovelSlugPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+      <Analytics />
+    </>
   );
 }
