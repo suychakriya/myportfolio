@@ -14,6 +14,7 @@ export interface NovelFrontmatter {
   tag?: string;
   reading?: string;
   linebreaks?: string;
+  paginate?: string;
 }
 
 export interface NovelPost extends NovelFrontmatter {
@@ -54,6 +55,7 @@ export function getAllNovels(): NovelPost[] {
       tag: data.tag,
       reading: data.reading,
       linebreaks: data.linebreaks,
+      paginate: data.paginate,
       content: body,
     });
   }
@@ -62,6 +64,58 @@ export function getAllNovels(): NovelPost[] {
 
 export function getNovelBySlug(slug: string): NovelPost | null {
   return getAllNovels().find((p) => p.slug === slug) ?? null;
+}
+
+export interface NovelChapter {
+  title: string | null;
+  pov?: string;
+  content: string;
+}
+
+export interface NovelArc {
+  title: string;
+  pov?: string;
+  chapters: NovelChapter[];
+}
+
+export function splitIntoArcs(md: string): NovelArc[] {
+  const arcs: NovelArc[] = [];
+  let arc: NovelArc | null = null;
+  let chapter: NovelChapter | null = null;
+  let buf: string[] = [];
+
+  const flush = () => {
+    const text = buf.join("\n").trim();
+    buf = [];
+    if (!text && !chapter?.title) return;
+    if (!arc) {
+      arc = { title: "Prologue", chapters: [] };
+      arcs.push(arc);
+    }
+    arc.chapters.push({ title: chapter?.title ?? null, pov: chapter?.pov, content: text });
+  };
+
+  for (const line of md.split("\n")) {
+    const arcMatch = line.match(/^#{1,2}\s+(.+)$/);
+    const chapterMatch = line.match(/^###\s+(.+)$/);
+    const povMatch = line.match(/^@pov\s+(.+)$/);
+    if (povMatch) {
+      if (chapter) chapter.pov = povMatch[1].trim();
+      else if (arc) arc.pov = povMatch[1].trim();
+    } else if (arcMatch) {
+      flush();
+      chapter = null;
+      arc = { title: arcMatch[1].trim(), chapters: [] };
+      arcs.push(arc);
+    } else if (chapterMatch) {
+      flush();
+      chapter = { title: chapterMatch[1].trim(), content: "" };
+    } else {
+      buf.push(line);
+    }
+  }
+  flush();
+  return arcs.filter((a) => a.chapters.length > 0);
 }
 
 /**
@@ -101,10 +155,10 @@ export function renderMarkdown(md: string, opts?: { preserveLineBreaks?: boolean
       );
     } else {
       const inlined = inline(trimmed);
-      const body = opts?.preserveLineBreaks ? inlined.replace(/\n/g, "<br />") : inlined.replace(/\n/g, " ");
-      html.push(
-        `<p class="my-5 leading-[1.85] text-lg text-foreground/90">${body}</p>`,
-      );
+      const body = opts?.preserveLineBreaks
+        ? inlined.replace(/\n/g, "<br />")
+        : inlined.replace(/\n/g, " ");
+      html.push(`<p class="my-5 leading-[1.85] text-lg text-foreground/90">${body}</p>`);
     }
   }
   return html.join("\n");
